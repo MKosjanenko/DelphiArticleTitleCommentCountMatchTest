@@ -24,7 +24,7 @@ public class MainPageWeb {
     MainPageWeb mainPageWeb = new MainPageWeb(baseFunctions);
 
     public List GetWebArticleList(){
-        return ArticleFlattener.GetTitlesAndComments(ARTICLE_TITLE_WEB, COMMENT_COUNT_WEB, ARTICLE);
+        return ArticleFlattener.GetTitlesAndComments(,ARTICLE_TITLE_WEB, COMMENT_COUNT_WEB, ARTICLE);
     }
 
     public static By getARTICLE() {

@@ -1,9 +1,7 @@
 package Pages;
-
 import Model.Article;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +9,10 @@ import java.util.List;
  * Created by qa on 4/22/2018.
  */
 public class ArticleFlattener {
-
+    BaseFunctions baseFunctions = new BaseFunctions();
 
     public List GetTitlesAndComments(By titles, By commentCounters, By article) {
-        List<WebElement> articles = baseFunctions.driver.findElements(article);
+        List<WebElement> articles = baseFunctions.getElements(article);
         List<Article> firstFiveArticles = new ArrayList<Article>();
 
         for (int i = 0; i < 5; i++) {
@@ -22,7 +20,7 @@ public class ArticleFlattener {
             WebElement we = articles.get(i);
 
             a.setTitle(we.getText());
-            LOGGER.info(we.getText());
+//            LOGGER.info(we.getText());
 
             if (!we.findElements(commentCounters).isEmpty()) {
                 a.setCommentCount(we.findElement(commentCounters).getText());
@@ -30,7 +28,7 @@ public class ArticleFlattener {
                 a.setCommentCount(0);
             }
 
-            LOGGER.info(we.findElement(commentCounters).getText());
+//            LOGGER.info(we.findElement(commentCounters).getText());
             firstFiveArticles.add(a);
         }
         return firstFiveArticles;
